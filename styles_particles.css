@@ -1,0 +1,53 @@
+
+/* Estilos generales */
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  overflow: hidden;
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: -1;
+}
+
+/* Estilo del logo */
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  height: 50px; /* Ajusta entre 40px y 60px según necesites */
+}
+
+/* Estilo del texto "coming soon" */
+.coming-soon {
+  color: white;
+  font-size: 5rem; /* Aumentado de 3rem a 5rem */
+  animation: breathing 2s ease-in-out infinite;
+  text-align: center;
+  z-index: 1;
+}
+
+/* Efecto de respiración en el texto */
+@keyframes breathing {
+  0% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+}
