@@ -3,29 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NetVigil</title>
+  <title>My Project - Home</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap"> <!-- Roboto Bold Font -->
   <link rel="stylesheet" href="styles_particles.css">
   <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 </head>
 <body>
 
-  <!-- Particles.js container -->
+  <!-- Particles.js container (for the entire page) -->
   <div id="particles-js"></div>
 
-  <!-- Logo -->
-  <img src="logo.png" alt="Logo" class="logo">
+  <!-- Centered title at the top -->
+  <header class="header-title">
+    <h1>NetVigil</h1>
+  </header>
 
-  <!-- Texto "Coming Soon" -->
-  <div class="coming-soon">
-    Coming Soon
+  <!-- First section: Logo and slogan with entrance animation -->
+  <section class="first-section">
+    <img src="logo.png" alt="Logo" class="app-logo fade-in">
+    <h1 class="slogan fade-in">Elevating Network Security with Precision.</h1>
+  </section>
+
+  <!-- Second section: AntiVPN and AntiProxy explanation that appears on scroll -->
+  <section class="hidden-section" id="content-section">
+    <div class="logos">
+      <div class="logo-block">
+        <img src="fivem-logo.png" alt="FiveM Logo" class="logo-img">
+        <p>FiveM</p>
+      </div>
+      <div class="logo-block">
+        <img src="minecraft-logo.png" alt="Minecraft Logo" class="logo-img">
+        <p>Minecraft</p>
+      </div>
+    </div>
+    <div class="vertical-line"></div>
+    <div class="columns">
+      <h2>AntiVPN and AntiProxy in Action</h2>
+      <p>Our AntiVPN and AntiProxy system is designed to ensure a secure and fair gaming environment by identifying and blocking connections from VPNs and proxies. This system works by detecting users who attempt to hide their true location or identity in order to bypass server restrictions or engage in malicious activities.</p>
+      <p>With advanced detection algorithms, our solution guarantees that players connecting to your server are genuine, reducing the risk of fraud and unfair play. The system will seamlessly integrate with platforms like FiveM and Minecraft, offering real-time protection and customizable settings for server administrators to maintain control over who enters their gaming environment.</p>
+    </div>
+  </section>
+
+  <!-- Divider with an animated line -->
+  <div class="divider">
+    <span class="line"></span>
   </div>
+
+  <!-- Third section: Anticheat in development -->
+  <section class="hidden-section" id="anticheat-section">
+    <div class="logos">
+      <div class="logo-block">
+        <img src="anticheat-logo.png" alt="Anticheat Logo" class="logo-img">
+        <p>Anticheat</p>
+      </div>
+    </div>
+    <div class="vertical-line"></div>
+    <div class="columns">
+      <h2>Anticheat in Development</h2>
+      <p>We are currently developing an advanced anticheat system that will be able to detect a wide variety of cheats, including speed hacks, fly hacks, X-ray, auto-clickers, and more. This anticheat solution aims to ensure that gameplay remains fair by identifying and neutralizing malicious players attempting to gain an unfair advantage.</p>
+      <p>Our anticheat system will work seamlessly across multiple platforms, including FiveM and Minecraft. Designed with a focus on performance and accuracy, this solution will not only detect cheats but also log suspicious behavior and provide tools for server administrators to act quickly and effectively against offenders.</p>
+    </div>
+  </section>
 
   <!-- Particles.js configuration -->
   <script>
     particlesJS.load('particles-js', 'particles-config.json', function() {
       console.log('Particles.js loaded');
     });
+
+    // Animation to show the second and third sections on scroll
+    window.addEventListener('scroll', function() {
+      const contentSection = document.getElementById('content-section');
+      const anticheatSection = document.getElementById('anticheat-section');
+      const scrollTop = window.pageYOffset;
+
+      // Show the second section when scrolling
+      if (scrollTop > 100) {
+        contentSection.classList.add('visible');
+      }
+
+      // Show the third section when scrolling further
+      if (scrollTop > 600) {
+        anticheatSection.classList.add('visible');
+      }
+    });
+
+    // Smooth entry animation for the logo and slogan
+    window.onload = function() {
+      const fadeInElements = document.querySelectorAll('.fade-in');
+      fadeInElements.forEach(element => {
+        element.style.opacity = 1;
+        element.style.transform = 'translateY(0)';
+      });
+    };
   </script>
 
 </body>

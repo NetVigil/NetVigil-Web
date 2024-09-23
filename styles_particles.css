@@ -1,53 +1,157 @@
-
-/* Estilos generales */
+/* General styles */
 body {
   margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  font-family: 'Roboto', sans-serif;
   background-color: #000;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  overflow: hidden;
+  color: white;
+  overflow-x: hidden;
 }
 
 #particles-js {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
-  background-color: black;
+  top: 0;
+  left: 0;
   z-index: -1;
 }
 
-/* Estilo del logo */
-.logo {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  height: 50px; /* Ajusta entre 40px y 60px según necesites */
+/* Centered title */
+.header-title {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px 0;
 }
 
-/* Estilo del texto "coming soon" */
-.coming-soon {
+.header-title h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700; /* Roboto bold */
+  letter-spacing: 1.5px;
   color: white;
-  font-size: 5rem; /* Aumentado de 3rem a 5rem */
-  animation: breathing 2s ease-in-out infinite;
+}
+
+/* First section: Logo and slogan */
+.first-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  position: relative;
   z-index: 1;
 }
 
-/* Efecto de respiración en el texto */
-@keyframes breathing {
-  0% {
-    opacity: 0.8;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.05);
-  }
-  100% {
-    opacity: 0.8;
-    transform: scale(1);
-  }
+/* Smooth entrance animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.app-logo {
+  height: 120px;
+  margin-bottom: 20px;
+}
+
+.slogan {
+  font-size: 2.5rem;
+  max-width: 80%;
+  margin: 0;
+  padding: 0 20px;
+  line-height: 1.2;
+}
+
+/* Sections (Second and Third): Initially hidden */
+.hidden-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+  max-width: 700px;
+  height: 550px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
+  display: flex; /* Flexbox to organize */
+  align-items: center;
+}
+
+/* Sections visible on scroll */
+.hidden-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Divider with animated line */
+.divider {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+}
+
+.divider .line {
+  width: 0%;
+  height: 2px;
+  background-color: white;
+  transition: width 1s ease-in-out;
+}
+
+body.scrolled .divider .line {
+  width: 80%; /* Line grows on scroll */
+}
+
+/* Logos for each section */
+.logos {
+  flex: 0 0 120px; /* More space for logos */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-block {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.logo-img {
+  height: 60px;
+}
+
+.logo-block p {
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+/* Vertical line between logos and text */
+.vertical-line {
+  width: 2px;
+  background-color: white;
+  height: 100%;
+  margin: 0 20px;
+}
+
+/* Columns in the sections */
+.columns {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left; /* Left-aligned text */
+}
+
+/* Text style in the sections */
+.hidden-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.hidden-section p {
+  font-size: 1.2rem;
+  margin: 0;
+  padding-bottom: 10px;
 }
