@@ -1,8 +1,8 @@
 /* General styles */
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
-  background-color: #000;
+  font-family: 'Roboto Condensed', sans-serif;
+  background-color: #000; /* Fondo negro */
   color: white;
   overflow-x: hidden;
 }
@@ -26,8 +26,9 @@ body {
 
 .header-title h1 {
   margin: 0;
+  font-family: 'Roboto', sans-serif;
   font-size: 2rem;
-  font-weight: 700; /* Roboto bold */
+  font-weight: 700;
   letter-spacing: 1.5px;
   color: white;
 }
@@ -44,7 +45,6 @@ body {
   z-index: 1;
 }
 
-/* Smooth entrance animation */
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
@@ -64,94 +64,87 @@ body {
   line-height: 1.2;
 }
 
-/* Sections (Second and Third): Initially hidden */
+/* Hidden sections with appearance animations */
 .hidden-section {
   opacity: 0;
-  transform: translateY(50px);
+  transform: translateX(0);
   transition: opacity 1s ease-out, transform 1s ease-out;
   max-width: 700px;
-  height: 550px;
   margin: 30px auto;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 20px;
-  display: flex; /* Flexbox to organize */
-  align-items: center;
+  text-align: left;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
-/* Sections visible on scroll */
-.hidden-section.visible {
+.from-right {
+  transform: translateX(100%);
+}
+
+.from-right.visible {
+  transform: translateX(0);
   opacity: 1;
-  transform: translateY(0);
 }
 
-/* Divider with animated line */
-.divider {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 50px 0;
+.from-left {
+  transform: translateX(-100%);
 }
 
-.divider .line {
-  width: 0%;
-  height: 2px;
-  background-color: white;
-  transition: width 1s ease-in-out;
+.from-left.visible {
+  transform: translateX(0);
+  opacity: 1;
 }
 
-body.scrolled .divider .line {
-  width: 80%; /* Line grows on scroll */
+/* Box for sections with rounded borders */
+.section-box {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  color: white;
 }
 
-/* Logos for each section */
-.logos {
-  flex: 0 0 120px; /* More space for logos */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.logo-block {
-  margin-bottom: 20px;
+/* Footer styles */
+footer {
+  background-color: #000000; /* Negro puro */
+  color: #ffffff; /* Texto en blanco */
+  padding: 30px 0; /* Aumenta el tamaño del pie de página */
   text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 
-.logo-img {
-  height: 60px;
-}
-
-.logo-block p {
-  margin-top: 10px;
-  font-size: 1rem;
-}
-
-/* Vertical line between logos and text */
-.vertical-line {
-  width: 2px;
-  background-color: white;
-  height: 100%;
-  margin: 0 20px;
-}
-
-/* Columns in the sections */
-.columns {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: left; /* Left-aligned text */
-}
-
-/* Text style in the sections */
-.hidden-section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-.hidden-section p {
-  font-size: 1.2rem;
+.footer-content p {
   margin: 0;
-  padding-bottom: 10px;
+  font-size: 16px; /* Aumenta el tamaño del texto */
+}
+
+.footer-icons {
+  margin-top: 15px;
+}
+
+.footer-icon {
+  width: 32px; /* Iconos más grandes */
+  margin: 0 15px;
+  transition: transform 0.3s ease;
+}
+
+.footer-icon:hover {
+  transform: scale(1.2);
+}
+
+.footer-links {
+  margin-top: 15px;
+}
+
+.footer-links a {
+  color: #ffffff; /* Enlaces en blanco */
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
 }
